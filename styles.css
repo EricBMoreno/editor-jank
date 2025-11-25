@@ -1,0 +1,21 @@
+
+text-editor {
+/*   color: lightblue; */
+/*   color: hsl(682deg, 27%, 50%); */
+/*   color: oklch(85% 65% 75deg); */
+/*   color: rgb(1 52 75); */
+  color: #a10001;
+}
+
+/* text-editor:state(plaintext) 
+{ outline: solid lawngreen 5px; } */
+
+/* text-editor:state(richtext) 
+{ outline: solid violet 5px; } */
+
+text-editor::part(plaintext-editor),
+text-editor::part(richtext-editor)
+{ padding: 2rem 2rem 0 2rem; }
+
+/* text-editor::part(footer) 
+{ background: green; } */
