@@ -133,7 +133,7 @@ class textEditor extends HTMLElement {
             background-color: var(--secondary-color);
             border: solid 2px;
 
-            // min-height: min-content;
+            min-height: min-content;
             height: 500px;
             resize: vertical;
             overflow: auto;
