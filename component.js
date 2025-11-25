@@ -134,6 +134,8 @@ class textEditor extends HTMLElement {
             border: solid 2px;
 
             min-height: min-content;
+            height: 500px;
+            resize: horizontal;
             position: relative;
         }
 
