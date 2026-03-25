@@ -42,13 +42,9 @@ class textEditor extends HTMLElement {
         editor.innerHTML = `
         <menu id="toolbar" role="toolbar" part="toolbar">
           <slot></slot>
-          <button id="toggle-view" aria-label="Toggle Mode" part="btn-menu">
-            <span aria-hidden="true">&lt;/&gt;</span>
-          </button>
+          <button id="toggle-view" aria-label="Toggle Mode" part="btn-menu"></button>
           
-          <button id="view-actions" aria-label="View Actions" part="btn-menu">
-            &vellip;
-          </button>
+          <button id="view-actions" aria-label="View Actions" part="btn-menu"></button>
         </menu>
 
         <section id="editor" aria-label="editable region">
@@ -259,6 +255,16 @@ class textEditor extends HTMLElement {
 
         ::slotted(button:not([command])) {
             display: none;
+        }
+
+        button#toggle-view::after {
+            content: '' / 'Toggle View';
+            --command-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 16 16" fill="none"><path d="M8.01005 0.858582L6.01005 14.8586L7.98995 15.1414L9.98995 1.14142L8.01005 0.858582Z" fill="%23000000"/><path d="M12.5 11.5L11.0858 10.0858L13.1716 8L11.0858 5.91422L12.5 4.5L16 8L12.5 11.5Z" fill="%23000000"/><path d="M2.82843 8L4.91421 10.0858L3.5 11.5L0 8L3.5 4.5L4.91421 5.91422L2.82843 8Z" fill="%23000000"/></svg>');
+        }
+
+        button#view-actions::after {
+            content: '\22EE';
+            mask-image: unset;
         }
         
         hr {
