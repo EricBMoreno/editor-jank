@@ -318,6 +318,14 @@ class textEditor extends HTMLElement {
             pointer-events: none;
         }
 
+        svg:has(mask) {
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
         @media (width < 782px) {
             #toolbar #view-actions { 
                 // background: blue !important; 
