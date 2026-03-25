@@ -203,7 +203,8 @@ class textEditor extends HTMLElement {
             initial-value: 
         }
         
-        ::slotted(button[command])::after {
+        ::slotted(button[command])::after,
+        button[part="btn-menu"]{
           content: '';
           mask-image: var(--command-icon);
           mask-position: center;
