@@ -216,6 +216,31 @@ class textEditor extends HTMLElement {
         }
 
         
+        
+        ::slotted(button[command])::after {
+          content: '';
+          mask-image: var(--command-icon);
+          mask-repeat: no-repeat;
+          width: -webkit-fill-available;
+          min-width: 12px;
+          aspect-ratio: 1 / 1;
+          background-color: currentColor;
+          outline: solid red 1px;
+        }
+        
+        ::slotted(button[command="--bold"]) {
+          --command-icon: url(#mask-bold);
+        }
+        
+        ::slotted(button[command="--strike"]) {
+          --command-icon: url(#mask-strike);
+        }
+        
+        ::slotted(button[command="--underline"]) {
+          --command-icon: url(#mask-underline);
+        }
+
+        
         hr {
             background-color: transparent;
             width: 5px;
