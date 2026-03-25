@@ -181,7 +181,6 @@ class textEditor extends HTMLElement {
         button, ::slotted(button), label
         {
             color: oklch(from var(--secondary-color) calc(l - .65) c h);
-            text-color: blue;
             background-color: oklch(from var(--secondary-color) calc(l + .65) c h);
 
             mix-blend-mode: hard-light;
@@ -223,11 +222,9 @@ class textEditor extends HTMLElement {
           content: '';
           mask-image: var(--command-icon);
           mask-repeat: no-repeat;
-          width: -webkit-fill-available;
-          min-width: 85cqw;
+          width: 85cqw;
           aspect-ratio: 1 / 1;
           background-color: currentColor;
-          outline: solid red 1px;
         }
         
         ::slotted(button[command="--bold"]) {
