@@ -260,11 +260,11 @@ class textEditor extends HTMLElement {
         }
         
         :host(:state(plaintext)) #mode::after {
-          content: 'Mode: Plain text';
+          content: 'Mode: Plain text' / 'Plain Text Mode';
         }
         
         :host(:state(richtext)) #mode::after {
-          content: 'Mode: Rich text';
+          content: 'Mode: Rich text' / 'Rich Text Mode';
         }
 
         .icon {
