@@ -155,6 +155,12 @@ class textEditor extends HTMLElement {
             position: relative;
         }
 
+        #editor {
+            height: -webkit-fill-available;
+            height: -moz-available;
+            height: stretch;
+        }
+
         #toolbar {
             display: flex;
             flex-wrap: wrap;
@@ -284,10 +290,8 @@ class textEditor extends HTMLElement {
             display: flex;
             align-items: center;
             gap: 1rem;
-
-            padding: 0.75rem 1rem;
+            padding: 0 0.5rem;
             height: var(--footer-height);
-
             font-family: sans-serif;
             pointer-events: none;
             user-select: none;
