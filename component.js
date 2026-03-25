@@ -150,6 +150,7 @@ class textEditor extends HTMLElement {
 
             min-height: min-content;
             // height: 500px;
+            height: stretch;
             resize: vertical;
             overflow: auto;
             position: relative;
