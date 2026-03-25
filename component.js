@@ -185,7 +185,7 @@ class textEditor extends HTMLElement {
             background-color: oklch(from var(--secondary-color) calc(l + .65) c h);
 
             mix-blend-mode: hard-light;
-            height: 50px !important;
+            height: 50px;
             aspect-ratio: 1 / 1;
             border: 0;
             margin: 0;
