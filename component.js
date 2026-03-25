@@ -213,6 +213,10 @@ class textEditor extends HTMLElement {
             filter: invert(0%); 
         }
 
+        ::slotted(button) {
+            container: btn / inline-size;
+        }
+
         
         
         ::slotted(button[command])::after {
@@ -220,7 +224,7 @@ class textEditor extends HTMLElement {
           mask-image: var(--command-icon);
           mask-repeat: no-repeat;
           width: -webkit-fill-available;
-          min-width: 12px;
+          min-width: 85cqw;
           aspect-ratio: 1 / 1;
           background-color: currentColor;
           outline: solid red 1px;
