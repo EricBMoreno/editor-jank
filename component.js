@@ -142,7 +142,7 @@ class textEditor extends HTMLElement {
             --secondary-color: oklch(from currentColor calc(l + .15) c h);
             --primary-inverted: rgb(from var(--primary-color) calc(255 - r) calc(255 - g) calc(255 - b));
 
-            --footer-height: 10px;
+            --footer-height: 30px;
 
             display: block;
             background-color: var(--secondary-color);
