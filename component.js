@@ -166,6 +166,7 @@ class textEditor extends HTMLElement {
 
             mix-blend-mode: hard-light;
             height: 50px;
+            max-width: 50px;
             aspect-ratio: 1 / 1;
             border: 0;
             margin: 0;
