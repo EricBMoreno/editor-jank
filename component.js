@@ -204,7 +204,7 @@ class textEditor extends HTMLElement {
         }
         
         ::slotted(button[command])::after,
-        button[part="btn-menu"]{
+        button[part="btn-menu"]::after {
           content: '';
           mask-image: var(--command-icon);
           mask-position: center;
