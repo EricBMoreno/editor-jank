@@ -263,8 +263,8 @@ class textEditor extends HTMLElement {
         }
 
         button#view-actions::after {
-            content: '\22EE';
-            mask-image: unset;
+            content: '' / View Actions;
+            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000000" width="25px" height="25px" viewBox="0 0 24 24"><circle cx="12" cy="17.5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="6.5" r="1.5"/></svg>');
         }
         
         hr {
