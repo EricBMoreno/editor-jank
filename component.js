@@ -199,9 +199,9 @@ class textEditor extends HTMLElement {
         }
 
         @property --command-icon {
-            syntax: '<url>';
+            syntax: '<url> | none';
             inherits: false;
-            initial-value: 
+            initial-value: none;
         }
         
         ::slotted(button[command])::after,
