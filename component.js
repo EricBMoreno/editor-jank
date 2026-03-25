@@ -299,7 +299,8 @@ class textEditor extends HTMLElement {
             width: -moz-available;
             min-height: 200px;
             height: calc(100% - var(--footer-height));
-            background: white;
+            background-color: white;
+            -webkit-text-fill-color: black;
             padding: 1rem;
             border-style: solid;
             border-width: 5px 0 2.5px 0;
