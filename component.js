@@ -149,18 +149,13 @@ class textEditor extends HTMLElement {
             border: solid 2px;
 
             min-height: min-content;
-            // height: 500px;
+            height:-webkit-fill-available;
+            height: -moz-available;
             height: stretch;
             resize: vertical;
             overflow: auto;
             position: relative;
         }
-
-        // #editor {
-        //     height: -webkit-fill-available;
-        //     height: -moz-available;
-        //     height: stretch;
-        // }
 
         #toolbar {
             display: flex;
