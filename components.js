@@ -128,11 +128,7 @@ class textEditor extends HTMLElement {
         slot.removeAttribute('slotted');
       }
     };
-    editor.addEventListener('slotchange', function() {
-      setTimeout(function() {
-        updateSlottedAttr
-      }, 100);
-    );
+    editor.addEventListener('slotchange', updateSlottedAttr);
       
     } /* END CONNECTED CALLBACK */
 
