@@ -129,8 +129,9 @@ class textEditor extends HTMLElement {
       }
     };
     editor.addEventListener('slotchange', updateSlottedAttr);
+    updateSlottedAttr();
       
-    }
+    } /* END CONNECTED CALLBACK */
 
 }
 customElements.define("text-editor", textEditor);
