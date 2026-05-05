@@ -1,25 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <link rel=“stylesheet” type=“text/css” href=“styles.css”>
-    <script src="component.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
   </head>
   <body>
+    
     <text-editor>
-      <button type="button" command="--bold"></button>
-      <button type="button" command="--strike"></button>
-      <button type="button" command="--underline"></button>
-      <button type="button" command="--quote"></button>
-      <button type="button" command="--list-bullet"></button>
-      <button type="button" command="--list-number"></button>
-      <button type="button" command="--link"></button>
-      <button type="button" command="--image"></button>
-      <select name="text-styles">
-        <option>style 1</option>
-        <option>style 2</option>
-        <option>style 3</option>
-        <option>style 4</option>
-      </select>
+      <menu-item slot="bold"></menu-item>
+      <menu-item slot="strike"></menu-item>
+      <menu-item slot="strike"></menu-item>
+      <menu-item slot="underline"></menu-item>
+      <menu-item slot="quote"></menu-item>
+      <menu-item slot="list-bullet"></menu-item>
+      <menu-item slot="list-number"></menu-item>
+      <menu-item slot="link"></menu-item>
+      <menu-item slot="image"></menu-item>
+      <menu-item slot="styles">
+        <option value="test"></option>
+      </menu-item>
     </text-editor>
+
+    <script type="module" src="./components.js"></script>
+
+    <style>
+      
+      text-editor {
+        outline-offset: 2px;
+        &:defined { border: solid lawngreen 2px; }
+        &:undefined { border: solid red 2px; }
+        &:state(plaintext) { outline: solid blue 2px; }
+        &:state(richtext) { outline: solid rebeccapurple 2px; }
+      }      
+    </style>
+    
   </body>
 </html>
