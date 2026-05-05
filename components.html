@@ -1,0 +1,231 @@
+<text-editor>
+  <template id="text-editor" shadowrootmode="open" shadowrootclonable shadowrootdelegatesfocus>
+        <menu id="menubar" role="menubar" part="menubar">
+          <li role="presentation">
+              <button command="--bold" aria-label="Bold Text" 
+                part="menu-control" role="menuitem">
+                <slot name="bold"></slot>
+              </button>
+           </li>         
+          <li role="presentation">
+              <button command="--strike" aria-label="Strike Text" 
+                part="menu-control" role="menuitem">
+                <slot name="strike"></slot>
+              </button>
+          </li>
+          <li role="presentation">
+              <button command="--underline" aria-label="Underline Text" 
+                part="menu-control" role="menuitem">
+                <slot name="underline"></slot>
+              </button>
+          </li>
+          <li role="presentation">
+              <button command="--quote" aria-label="Quote Text" part="menu-control" role="menuitem">
+                <slot name="quote"></slot>
+              </button>
+          </li>
+          <li role="presentation">
+              <button command="--list-bullet" aria-label="Create Bulleted List" 
+                part="menu-control" role="menuitem">
+                <slot name="list-bullet"></slot>
+              </button>
+          </li>
+          <li role="presentation">
+              <button command="--list-number" aria-label="Create Numbered List" 
+                part="menu-control" role="menuitem">
+                <slot name="list-number"></slot>
+              </button>
+          </li>
+          <li role="presentation">
+              <button command="--link" aria-label="Create Link" 
+                part="menu-control" role="menuitem">
+                <slot name="link"></slot>
+              </button>
+          </li>
+          <li role="presentation">
+              <button command="--image" aria-label="Add Image" 
+                part="menu-control" role="menuitem">
+                <slot name="image"></slot>
+              </button>
+          </li>
+          <li role="presentation">
+              <select aria-label="Change Text Style">
+                <slot name="styles"></slot>
+                <option value="" checked>Select a style</option>
+              </select>
+          </li>
+          <li role="presentation">
+              <button id="toggle-view" aria-label="Toggle Mode" 
+                part="menu-control" role="menuitem">
+              </button>
+          </li>
+          <li role="presentation">
+            <button id="view-actions" aria-label="View Actions" 
+              part="menu-control" role="menuitem">
+            </button>
+          </li>
+        </menu>
+
+        <section id="editor" aria-label="editable region">
+            <textarea id="plaintext" class="edit-region" 
+            part="plaintext-editor" 
+            aria-label="Plaintext Editor"><p style="color: red; font-size: 1.5rem;"><strong>This pen is blue.</strong></p></textarea>
+            <iframe id="richtext" class="edit-region" 
+            part="richtext-editor" 
+            title="Rich Text Editor"
+            srcdoc=""
+            sandbox="allow-same-origin"
+            loading="lazy" inert>
+            </iframe>
+        </section>
+
+        <footer id="counters" part="footer"></footer>
+
+        <style>
+        
+        :host {
+            --primary-color: currentColor;
+            --secondary-color: oklch(from currentColor calc(l + .30) c h);
+            --webkit-stretch: -webkit-fill-available;
+            --moz-stretch: -moz-available;
+            --stretch: var(--webkit-stretch, var(--moz-stretch, stretch));
+            
+            color: gray;
+
+            display: block;
+            background-color: var(--secondary-color);
+            border-style: solid;
+            border-color: oklch(from currentColor calc(l + .15 ) c h);
+            border-width: 1px;
+            border-radius: 2px;
+
+            min-height: min-content;
+            height: min-content;
+            overflow: auto;
+            position: relative;
+        }
+
+        menu {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 3px 2px;
+            height: min-content;
+            font-family: system-ui;
+            list-style: none;
+            border-block: solid var(--secondary-color) 5px;
+        }
+
+        button {
+            color: oklch(from var(--secondary-color) calc(l - .65) c h);
+            background-color: oklch(from var(--secondary-color) calc(l + .65) c h);
+
+            mix-blend-mode: hard-light;
+            height: var(--stretch);
+            width: var(--stretch);
+            flex: 0 0;
+            min-width: 50px;
+            aspect-ratio: 1 / 1;
+            border-width: 1px;
+            border-color: oklch(from var(--secondary-color) calc(l - .65) c h);
+            border-radius: 2px;
+            
+            display: grid;
+            place-content: center;
+            
+            position: relative;
+            overflow: clip;
+            
+            &[command] { content-visibility: hidden; display: none;}
+            &[command]:has(slot[slotted]) { content-visibility: visible; display: inline grid; }
+        }
+        
+        button:hover,
+        label:has(input:checked), label:is(:hover, :focus)
+        { filter: invert(100%); }
+
+        button:active, label:has(input):active
+        { filter: invert(0%); }
+
+        :host menu :where(select, ::picker(select)) 
+        { appearance: base-select; }
+        
+        :host menu select {
+            display: none;
+            content-visibility: none;
+            color: black;
+            padding-left: 1rem;
+            width: var(--stretch);
+            min-width: max-content;
+            max-width: 250px;
+            height: var(--stretch);
+            position: relative;
+            background: white;
+            
+            border-width: 1px;
+            border-color: oklch(from var(--secondary-color) calc(l - .65) c h);
+            border-radius: 2px;
+            
+            &:has(slot[slotted]) { 
+              display: inline flex;
+              align-items: center;
+            }
+        }
+
+        :host :where(#plaintext, #richtext) {
+            color: inherit;
+            -webkit-text-fill-color: contrast-color(currentColor);
+            display: block;
+            width: var(--stretch);
+            min-height: 200px;
+            height: var(--stretch);
+            background: white;
+            padding: 1rem;
+            resize: vertical;
+            z-index: 1;
+            outline: none;
+            border: none;
+            border-block: solid oklch(from var(--secondary-color) calc(l - 0.15) c h) 1px;
+            
+            &[inert] { display: none; }
+        }
+        
+        menu [role="presentation"] {
+          display: contents;
+        }
+
+        :host footer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            padding: 0.75rem 1rem;
+            height: var(--footer-height);
+
+            font-family: sans-serif;
+            pointer-events: none;
+            user-select: none;
+
+            color: contrast-color(currentColor);
+        }
+        
+        :host(:state(plaintext)) footer::after 
+        { content: 'Mode: Plain text' / 'Plain Text Mode'; }
+        
+        :host(:state(richtext)) footer::after
+        { content: 'Mode: Rich text' / 'Rich Text Mode'; }
+        </style>
+  </template>
+</text-editor>
+
+
+<menu-item shadowrootmode="open">
+  <template id="menu-item">
+    <slot></slot>
+    <style>
+      :host {
+        content-visibility: hidden;
+      }
+    </style>
+  </template>
+</menu-item>
