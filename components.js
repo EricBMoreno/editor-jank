@@ -119,6 +119,9 @@ class textEditor extends HTMLElement {
 
     const updateSlottedAttr = (slot) => {
       const hasContent = slot.assignedElements({ flatten: true }).length > 0;
+
+      console.log(hasContent);
+      
       if (hasContent) {
         slot.setAttribute('slotted', '');
       } else {
