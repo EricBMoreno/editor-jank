@@ -1,5 +1,5 @@
 <cms-editor>
-  <template id="text-editor" shadowrootmode="open" shadowrootclonable shadowrootdelegatesfocus>
+  <template shadowrootmode="open" shadowrootclonable shadowrootdelegatesfocus>
         <menu id="menubar" role="menubar" part="menubar">
           <li>
               <button command="--bold" aria-label="Bold Text" 
@@ -219,6 +219,13 @@
 </cms-editor>
 
 
-<menu-item shadowrootmode="closed">
-  <template id="menu-item"></template>
+<menu-item> 
+  <template shadowrootmode="open"> 
+    <slot></slot> 
+    <style> 
+      :host { 
+        content-visibility: hidden; 
+      } 
+    </style> 
+  </template> 
 </menu-item>
