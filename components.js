@@ -1,16 +1,14 @@
-async function getTemplate(templateId) {
+async function getTemplate(tagName) {
   try {
     const response = await fetch('./components.html');
     const html = await response.text();
-
     const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html', {
-      includeShadowRoots: true 
-    });
+    const doc = parser.parseFromString(html, 'text/html');
     
-    const template = doc.querySelector('template#' + templateId);    
+    const wrapper = doc.querySelector(tagName);
+    const template = wrapper ? wrapper.querySelector('template') : null;
+    
     return template ? template.content.cloneNode(true) : null;
-    
   } catch(err) {
     console.error('Unable to fetch component: ' + err);
   }
