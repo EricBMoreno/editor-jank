@@ -116,7 +116,7 @@ class cmsEditor extends HTMLElement {
 
 
     const updateSlottedAttr = (event) => {
-      console.log(event.type);
+      console.log(event.target);
       const slot = event.target;
       const hasContent = slot.assignedElements({ flatten: true }).length > 0;
 
