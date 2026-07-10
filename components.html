@@ -151,8 +151,8 @@
         button:active, label:has(input):active
         { filter: invert(0%); }
 
-        :host menu :where(select, ::picker(select)) 
-        { appearance: base-select; }
+        :host menu :is(select, select::picker(select)) 
+        { appearance: base-select !important; }
         
         :host menu select {
             display: none;
