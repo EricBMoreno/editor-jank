@@ -1,65 +1,65 @@
 <cms-editor>
   <template id="text-editor" shadowrootmode="open" shadowrootclonable shadowrootdelegatesfocus>
         <menu id="menubar" role="menubar" part="menubar">
-          <li role="presentation">
+          <li>
               <button command="--bold" aria-label="Bold Text" 
                 part="menu-control" role="menuitem">
                 <slot name="bold"></slot>
               </button>
            </li>         
-          <li role="presentation">
+          <li>
               <button command="--strike" aria-label="Strike Text" 
                 part="menu-control" role="menuitem">
                 <slot name="strike"></slot>
               </button>
           </li>
-          <li role="presentation">
+          <li>
               <button command="--underline" aria-label="Underline Text" 
                 part="menu-control" role="menuitem">
                 <slot name="underline"></slot>
               </button>
           </li>
-          <li role="presentation">
+          <li>
               <button command="--quote" aria-label="Quote Text" part="menu-control" role="menuitem">
                 <slot name="quote"></slot>
               </button>
           </li>
-          <li role="presentation">
+          <li>
               <button command="--list-bullet" aria-label="Create Bulleted List" 
                 part="menu-control" role="menuitem">
                 <slot name="list-bullet"></slot>
               </button>
           </li>
-          <li role="presentation">
+          <li>
               <button command="--list-number" aria-label="Create Numbered List" 
                 part="menu-control" role="menuitem">
                 <slot name="list-number"></slot>
               </button>
           </li>
-          <li role="presentation">
+          <li>
               <button command="--link" aria-label="Create Link" 
                 part="menu-control" role="menuitem">
                 <slot name="link"></slot>
               </button>
           </li>
-          <li role="presentation">
+          <li>
               <button command="--image" aria-label="Add Image" 
                 part="menu-control" role="menuitem">
                 <slot name="image"></slot>
               </button>
           </li>
-          <li role="presentation">
+          <li>
               <select aria-label="Change Text Style">
                 <slot name="styles"></slot>
                 <option value="" checked>Select a style</option>
               </select>
           </li>
-          <li role="presentation">
+          <li>
               <button id="toggle-view" aria-label="Toggle Mode" 
                 part="menu-control" role="menuitem">
               </button>
           </li>
-          <li role="presentation">
+          <li>
             <button id="view-actions" aria-label="View Actions" 
               part="menu-control" role="menuitem">
             </button>
@@ -190,7 +190,7 @@
             &[inert] { display: none; }
         }
         
-        menu [role="presentation"] {
+        menu li {
           display: contents;
         }
 
