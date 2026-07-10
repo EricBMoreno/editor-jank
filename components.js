@@ -16,7 +16,7 @@ async function getTemplate(templateId) {
   }
 }
 
-class textEditor extends HTMLElement {
+class cmsEditor extends HTMLElement {
     static formAssociated = true;
     static observedAttributes = [];
 
@@ -133,7 +133,7 @@ class textEditor extends HTMLElement {
     } /* END CONNECTED CALLBACK */
 
 }
-customElements.define("text-editor", textEditor);
+customElements.define("text-editor", cmsEditor);
 
 
 
