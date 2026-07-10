@@ -48,20 +48,15 @@
                 <slot name="image"></slot>
               </button>
           </li>
-          <li>
-              <select aria-label="Change Text Style" name="styles">
+          <li>            
+            <select aria-label="Change Text Style" name="css-styles">
+              <button>
+                <selectedcontent></selectedcontent>
+              </button>
+              <div class="select-optiond">
                 <slot name="styles"></slot>
-                <option value="" checked>Select a style</option>
-              </select>
-            
-              <select>
-                <button>
-                  <selectedcontent></selectedcontent>
-                </button>
-                <div class="select-optiond">
-                  <slot></slot>
-                </div>
-              </select>
+              </div>
+            </select>
           </li>
           <li>
               <button id="toggle-view" aria-label="Toggle Mode" 
