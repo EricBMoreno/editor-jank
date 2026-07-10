@@ -26,7 +26,7 @@ class cmsEditor extends HTMLElement {
         this._internals.role = 'application';
         
         const shadow = this.shadowRoot || this.attachShadow({ mode: 'open' });
-        this.templateLoading = getTemplate('text-editor').then(templateFrag => {
+        this.templateLoading = getTemplate('cms-editor').then(templateFrag => {
           if (templateFrag) {
             shadow.appendChild(templateFrag);
           }
@@ -133,7 +133,7 @@ class cmsEditor extends HTMLElement {
     } /* END CONNECTED CALLBACK */
 
 }
-customElements.define("text-editor", cmsEditor);
+customElements.define("cms-editor", cmsEditor);
 
 
 
