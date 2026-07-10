@@ -133,7 +133,12 @@ class cmsEditor extends HTMLElement {
       //   slot.removeAttribute('slotted');
       // }
     };
-    editor.addEventListener('slotchange', updateSlottedAttr);
+    // editor.addEventListener('slotchange', updateSlottedAttr);
+
+    const allSlots = editor.querySelectorAll('slot');
+    allSlots.forEach(slot => {
+      updateSlottedAttr(slot);
+    });
       
     } /* END CONNECTED CALLBACK */
 
