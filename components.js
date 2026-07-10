@@ -115,16 +115,18 @@ class cmsEditor extends HTMLElement {
       });
 
 
-    const updateSlottedAttr = (slot) => {
+    const updateSlottedAttr = (event) => {
+      const slot = event.target;
       const hasContent = slot.assignedElements({ flatten: true }).length > 0;
 
-      console.log(hasContent);
+      slot.toggleAttribute('slotted', !hasContent);
+
       
-      if (hasContent) {
-        slot.setAttribute('slotted', '');
-      } else {
-        slot.removeAttribute('slotted');
-      }
+      // if (hasContent) {
+      //   slot.setAttribute('slotted', '');
+      // } else {
+      //   slot.removeAttribute('slotted');
+      // }
     };
     editor.addEventListener('slotchange', updateSlottedAttr);
       
