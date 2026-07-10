@@ -137,7 +137,7 @@ customElements.define("cms-editor", cmsEditor);
 
 class menuItem extends HTMLElement {
     static formAssociated = true;
-    static observedAttributes = ['slot'];
+    static observedAttributes = ['slot', 'aria-label'];
   
     constructor() {
       super();
@@ -156,6 +156,6 @@ class menuItem extends HTMLElement {
       this._internals.ariaLabel = newValue;
     }
   
-    connectedCallBack() {}
+    connectedCallback() {}
 }
 customElements.define("menu-item", menuItem);
