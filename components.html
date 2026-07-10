@@ -137,7 +137,7 @@
             overflow: clip;
             
             &[command] { content-visibility: hidden; display: none;}
-            &[command]:has(slot[slotted]) { content-visibility: visible; display: inline grid; }
+            &[command][active] { content-visibility: visible; display: inline grid; }
         }
         
         button:hover,
